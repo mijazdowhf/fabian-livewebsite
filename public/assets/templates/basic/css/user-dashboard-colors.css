@@ -1,0 +1,630 @@
+/**
+ * User Dashboard Custom Colors
+ * Primary: #025AA3 (Blue)
+ * Secondary: #CA19A8 (Pink/Magenta)
+ * With Shading Variations
+ */
+
+:root {
+    /* Primary Blue Colors */
+    --user-primary: #025AA3;
+    --user-primary-dark: #014078;
+    --user-primary-darker: #012d5a;
+    --user-primary-light: #0373cc;
+    --user-primary-lighter: #e6f2fa;
+    
+    /* Secondary Pink Colors */
+    --user-secondary: #CA19A8;
+    --user-secondary-dark: #9e1383;
+    --user-secondary-darker: #7a0f65;
+    --user-secondary-light: #de3dbf;
+    --user-secondary-lighter: #fce9f8;
+    
+    /* Accent Colors */
+    --user-accent-1: #0373cc;
+    --user-accent-2: #de3dbf;
+}
+
+/* ============================================
+   SIDEBAR STYLING
+   ============================================ */
+
+.dashboard-sidebar {
+    background: #ffffff !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+/* Sidebar Logo Area */
+.dashboard-sidebar .logo {
+    padding: 25px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Profile Info Card */
+.dashboard-sidebar .bg--lights {
+    background: linear-gradient(135deg, rgba(202, 25, 168, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin: 15px;
+    padding: 0;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-sidebar .profile-info {
+    padding: 18px !important;
+}
+
+.dashboard-sidebar .profile-info p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    letter-spacing: 1.5px;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+}
+
+.dashboard-sidebar .usd-balance {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+}
+
+.dashboard-sidebar .usd-balance sub {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    opacity: 0.85;
+    vertical-align: baseline !important;
+    margin-left: 3px !important;
+}
+
+/* Balance icon decoration */
+.dashboard-sidebar .balance-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.dashboard-sidebar .balance-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+/* User name styling */
+.dashboard-sidebar .profile-info small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Button container spacing */
+.dashboard-sidebar .profile-info .mt-3 {
+    margin-top: 12px !important;
+}
+
+.dashboard-sidebar .profile-info .gap-2 {
+    gap: 8px !important;
+}
+
+/* Sidebar Buttons */
+.dashboard-sidebar .btn--success {
+    background: linear-gradient(135deg, var(--user-secondary) 0%, var(--user-secondary-dark) 100%) !important;
+    border: none !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(202, 25, 168, 0.2) !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+}
+
+.dashboard-sidebar .btn--success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(202, 25, 168, 0.35) !important;
+    background: linear-gradient(135deg, var(--user-secondary-light) 0%, var(--user-secondary) 100%) !important;
+}
+
+.dashboard-sidebar .btn--success i {
+    font-size: 14px !important;
+}
+
+.dashboard-sidebar .btn--dark {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+}
+
+.dashboard-sidebar .btn--dark:hover {
+    background: rgba(255, 255, 255, 0.28) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.12) !important;
+}
+
+.dashboard-sidebar .btn--dark i {
+    font-size: 14px !important;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    padding: 20px 0 !important;
+    margin-top: 0 !important;
+}
+
+.sidebar-menu li {
+    margin: 4px 15px;
+}
+
+.sidebar-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 14px 20px !important;
+    color: #4a5568 !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+
+.sidebar-menu li a img {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 12px !important;
+    opacity: 0.7 !important;
+    filter: none !important;
+}
+
+.sidebar-menu li a:hover {
+    background: #f7fafc !important;
+    color: var(--user-primary) !important;
+    transform: translateX(5px);
+}
+
+.sidebar-menu li a:hover img {
+    opacity: 1 !important;
+}
+
+/* Active Menu Item */
+.sidebar-menu li a.active {
+    background: linear-gradient(135deg, var(--user-primary) 0%, var(--user-primary-light) 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(2, 90, 163, 0.25) !important;
+}
+
+.sidebar-menu li a.active img {
+    opacity: 1 !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+/* ============================================
+   TOPBAR STYLING
+   ============================================ */
+
+.dashboard-nav {
+    background: #ffffff !important;
+    padding: 20px 30px !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.dashboard-nav .dash-sidebar-toggler {
+    background: linear-gradient(135deg, var(--user-primary) 0%, var(--user-primary-light) 100%) !important;
+    color: white !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+}
+
+.dashboard-nav .dash-sidebar-toggler:hover {
+    background: linear-gradient(135deg, var(--user-primary-light) 0%, var(--user-primary) 100%) !important;
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(2, 90, 163, 0.3) !important;
+}
+
+.dashboard-nav .dash-sidebar-toggler:active {
+    transform: scale(0.95);
+}
+
+.dashboard-nav .dash-sidebar-toggler i {
+    font-size: 20px !important;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when sidebar is active */
+body.sidebar-open .dashboard-nav .dash-sidebar-toggler i {
+    transform: rotate(90deg);
+}
+
+/* Language Dropdown */
+.dashboard-nav .language-wrapper {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 8px !important;
+    padding: 8px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-nav .language-wrapper:hover {
+    background: #e9ecef !important;
+    border-color: var(--user-primary) !important;
+}
+
+.dashboard-nav .language-wrapper .language_text_select {
+    color: #4a5568 !important;
+}
+
+.dashboard-nav .language-wrapper i {
+    color: #4a5568 !important;
+}
+
+/* User Profile Dropdown */
+.dashboard-nav .user-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px 15px !important;
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-nav .user-info:hover {
+    background: #e9ecef !important;
+    border-color: var(--user-primary) !important;
+}
+
+.dashboard-nav .user-info .username,
+.dashboard-nav .user-info small {
+    color: #4a5568 !important;
+}
+
+.dashboard-nav .user-info i {
+    color: var(--user-primary) !important;
+}
+
+/* Notification Icon */
+.dashboard-nav .nav-right i {
+    color: #4a5568 !important;
+}
+
+.dashboard-nav .notification-wrapper {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 10px !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-nav .notification-wrapper:hover {
+    background: #e9ecef !important;
+    border-color: var(--user-primary) !important;
+}
+
+.dashboard-nav .notification-wrapper i {
+    font-size: 20px !important;
+    color: var(--user-primary) !important;
+}
+
+/* User Profile Link (Initials Circle) */
+.dashboard-nav .nav-header-link .link {
+    width: 45px !important;
+    height: 45px !important;
+    background: linear-gradient(135deg, var(--user-secondary) 0%, var(--user-secondary-dark) 100%) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(202, 25, 168, 0.2) !important;
+    text-decoration: none !important;
+}
+
+.dashboard-nav .nav-header-link .link:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(202, 25, 168, 0.35) !important;
+    background: linear-gradient(135deg, var(--user-secondary-light) 0%, var(--user-secondary) 100%) !important;
+}
+
+/* User Profile Dropdown Menu */
+.dashboard-nav .dropdown-wrapper {
+    background: white !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 10px !important;
+}
+
+.dashboard-nav .dropdown-header {
+    padding: 15px !important;
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.dashboard-nav .dropdown-header .name {
+    color: var(--user-primary) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+}
+
+.dashboard-nav .dropdown-header p {
+    color: #6c757d !important;
+    font-size: 13px !important;
+}
+
+.dashboard-nav .dropdown-wrapper .links li a {
+    color: #4a5568 !important;
+    padding: 12px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-nav .dropdown-wrapper .links li a:hover {
+    background: #f8f9fa !important;
+    color: var(--user-primary) !important;
+}
+
+.dashboard-nav .dropdown-wrapper .links li a i {
+    color: var(--user-primary) !important;
+    margin-right: 10px !important;
+}
+
+/* ============================================
+   DASHBOARD CONTENT STYLING
+   ============================================ */
+
+.dashboard-wrapper {
+    background: #f5f7fa !important;
+}
+
+.dashboard-container {
+    padding: 30px !important;
+}
+
+/* Dashboard Cards */
+.dashboard-container .card {
+    border-radius: 15px !important;
+    border: none !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-container .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Primary Button */
+.btn-primary,
+.btn--primary {
+    background: linear-gradient(135deg, var(--user-primary) 0%, var(--user-primary-dark) 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 10px 25px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover,
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(2, 90, 163, 0.3) !important;
+    background: linear-gradient(135deg, var(--user-primary-light) 0%, var(--user-primary) 100%) !important;
+}
+
+/* Secondary Button */
+.btn-secondary,
+.btn--secondary {
+    background: linear-gradient(135deg, var(--user-secondary) 0%, var(--user-secondary-dark) 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 10px 25px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-secondary:hover,
+.btn--secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(202, 25, 168, 0.3) !important;
+    background: linear-gradient(135deg, var(--user-secondary-light) 0%, var(--user-secondary) 100%) !important;
+}
+
+/* Info/Stats Cards */
+.dashboard-container .info-card {
+    background: linear-gradient(135deg, var(--user-primary-lighter) 0%, #ffffff 100%) !important;
+    border-left: 4px solid var(--user-primary) !important;
+}
+
+.dashboard-container .info-card.secondary {
+    background: linear-gradient(135deg, var(--user-secondary-lighter) 0%, #ffffff 100%) !important;
+    border-left: 4px solid var(--user-secondary) !important;
+}
+
+/* Links */
+.dashboard-container a {
+    color: var(--user-primary) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard-container a:hover {
+    color: var(--user-primary-dark) !important;
+}
+
+/* Badges */
+.badge-primary,
+.badge--primary {
+    background: var(--user-primary) !important;
+    color: white !important;
+}
+
+.badge-secondary,
+.badge--secondary {
+    background: var(--user-secondary) !important;
+    color: white !important;
+}
+
+/* Text Colors */
+.text-primary,
+.text--primary {
+    color: var(--user-primary) !important;
+}
+
+.text-secondary,
+.text--secondary {
+    color: var(--user-secondary) !important;
+}
+
+/* Background Colors */
+.bg-primary,
+.bg--primary {
+    background: var(--user-primary) !important;
+}
+
+.bg-secondary,
+.bg--secondary {
+    background: var(--user-secondary) !important;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 1199px) {
+    .dashboard-sidebar {
+        background: #ffffff !important;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-right: 1px solid #e9ecef;
+    }
+    
+    .dashboard-sidebar.active {
+        transform: translateX(0) !important;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Overlay when sidebar is open */
+    body.sidebar-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .dashboard-nav {
+        padding: 15px 20px !important;
+    }
+    
+    .dashboard-container {
+        padding: 20px 15px !important;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.gradient-primary {
+    background: linear-gradient(135deg, var(--user-primary) 0%, var(--user-primary-dark) 100%) !important;
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, var(--user-secondary) 0%, var(--user-secondary-dark) 100%) !important;
+}
+
+.gradient-mixed {
+    background: linear-gradient(135deg, var(--user-primary) 0%, var(--user-secondary) 100%) !important;
+}
+
+.shadow-primary {
+    box-shadow: 0 5px 15px rgba(2, 90, 163, 0.3) !important;
+}
+
+.shadow-secondary {
+    box-shadow: 0 5px 15px rgba(202, 25, 168, 0.3) !important;
+}
+
+/* Close Button for Sidebar on Mobile */
+.dashboard-sidebar .dash-sidebar-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    z-index: 10;
+}
+
+.dashboard-sidebar .dash-sidebar-close i {
+    font-size: 22px !important;
+    color: white !important;
+}
+
+.dashboard-sidebar .dash-sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: rotate(90deg);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+

@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Dashboard",
+    "icon": "las la-tachometer-alt",
+    "route_name": "agent.dashboard",
+    "menu_active": "agent.dashboard"
+  },
+  {
+    "title": "Applications",
+    "icon": "las la-file-invoice-dollar",
+    "menu_active": ["agent.loans*", "agent.mortgages*", "agent.applications.search"],
+    "submenu": [
+      {
+        "title": "Search Application",
+        "route_name": "agent.applications.search",
+        "menu_active": "agent.applications.search"
+      },
+      {
+        "title": "Loans",
+        "route_name": "agent.loans.index",
+        "menu_active": "agent.loans*"
+      },
+      {
+        "title": "Mortgages",
+        "route_name": "agent.mortgages.index",
+        "menu_active": "agent.mortgages*"
+      }
+    ]
+  },
+  {
+    "title": "Referrals",
+    "icon": "las la-gift",
+    "menu_active": ["agent.referrals", "agent.stripe.settings", "agent.commission.history"],
+    "submenu": [
+      {
+        "title": "My Referrals",
+        "route_name": "agent.referrals",
+        "menu_active": "agent.referrals"
+      },
+      {
+        "title": "Stripe Settings",
+        "route_name": "agent.stripe.settings",
+        "menu_active": "agent.stripe.settings"
+      },
+      {
+        "title": "Commission History",
+        "route_name": "agent.commission.history",
+        "menu_active": "agent.commission.history"
+      }
+    ]
+  },
+  {
+    "title": "Withdrawals",
+    "icon": "las la-money-bill-wave",
+    "menu_active": ["agent.withdraw*"],
+    "submenu": [
+      {
+        "title": "Withdraw Money",
+        "route_name": "agent.withdraw",
+        "menu_active": "agent.withdraw.index"
+      },
+      {
+        "title": "Withdrawal History",
+        "route_name": "agent.withdraw.history",
+        "menu_active": "agent.withdraw.history"
+      }
+    ]
+  },
+  {
+    "title": "Customer Support",
+    "icon": "las la-comments",
+    "route_name": "agent.messages.index",
+    "menu_active": "agent.messages*"
+  },
+  {
+    "title": "Profile",
+    "icon": "las la-user-circle",
+    "route_name": "agent.profile",
+    "menu_active": "agent.profile"
+  }
+]
+
+
