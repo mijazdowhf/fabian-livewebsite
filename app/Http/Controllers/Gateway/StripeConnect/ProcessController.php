@@ -61,7 +61,8 @@ class ProcessController extends Controller
             $send['track'] = $deposit->trx;
             $send['view'] = 'user.payment.StripeConnect'; // Use StripeConnect view
             $send['method'] = 'post';
-            $send['url'] = route('ipn.stripe'); // Use stripe route for IPN
+            // Use gateway alias to build route name (matches pattern used in other gateways)
+            $send['url'] = route('ipn.' . ucfirst($alias)); // ucfirst converts 'stripe' to 'Stripe'
             $send['payment_intent_client_secret'] = $paymentIntent->client_secret;
             $send['publishable_key'] = $stripeAcc->publishable_key;
             
