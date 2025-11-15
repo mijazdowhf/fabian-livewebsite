@@ -111,7 +111,7 @@
         <p class="mb-0 t-text-white text-center text-capitalize">
             &copy; {{ date('Y') }}
             <a class="base--text" href="{{ route('home') }}">{{ __(gs('site_name')) }}</a>
-            @lang('All Rights Reserved').
+            @lang('All Rights Reserved'). iajzkhan
         </p>
     </div>
 </footer>

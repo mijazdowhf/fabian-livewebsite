@@ -13,8 +13,16 @@ use App\Http\Controllers\Controller;
 class ProcessController extends Controller
 {
 
+    /*
+     * OLD STRIPE V3 CODE - COMMENTED OUT - NOW USING STRIPE CONNECT
+     * See StripeConnect\ProcessController for new implementation
+     */
     public static function process($deposit)
     {
+        // OLD CODE COMMENTED OUT - Using Stripe Connect instead
+        return json_encode(['error' => true, 'message' => 'This gateway method is deprecated. Please use Stripe Connect.']);
+        
+        /* OLD CODE - COMMENTED OUT
         $StripeAcc = json_decode($deposit->gatewayCurrency()->gateway_parameter);
         $alias = $deposit->gateway->alias;
         \Stripe\Stripe::setApiKey("$StripeAcc->secret_key");
@@ -49,11 +57,17 @@ class ProcessController extends Controller
         $deposit->btc_wallet = json_decode(json_encode($session))->id;
         $deposit->save();
         return json_encode($send);
+        */
     }
 
 
     public function ipn(Request $request)
     {
+        // OLD CODE COMMENTED OUT - Using Stripe Connect instead
+        http_response_code(200);
+        return;
+        
+        /* OLD CODE - COMMENTED OUT
         $StripeAcc = GatewayCurrency::where('gateway_alias','StripeV3')->orderBy('id','desc')->first();
         $gateway_parameter = json_decode($StripeAcc->gateway_parameter);
 
@@ -91,5 +105,6 @@ class ProcessController extends Controller
             }
         }
         http_response_code(200);
+        */
     }
 }

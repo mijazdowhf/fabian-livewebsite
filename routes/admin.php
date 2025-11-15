@@ -279,6 +279,13 @@ Route::middleware('admin')->group(function () {
         Route::get('get-keys', 'getKeys')->name('get.key');
     });
 
+    // Stripe Connect Settings
+    Route::controller('StripeConnectController')->prefix('stripe-connect')->name('stripe.connect.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::post('connect', 'connect')->name('connect');
+        Route::post('disconnect', 'disconnect')->name('disconnect');
+    });
+
     Route::controller('GeneralSettingController')->group(function(){
 
         Route::get('system-setting', 'systemSetting')->name('setting.system');

@@ -7,9 +7,10 @@ use App\Models\Deposit;
 use App\Http\Controllers\Gateway\PaymentController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Stripe\Charge;
-use Stripe\Stripe;
-use Stripe\Token;
+// COMMENTED OUT - OLD STRIPE CODE - NOW USING STRIPE CONNECT
+// use Stripe\Charge;
+// use Stripe\Stripe;
+// use Stripe\Token;
 use Illuminate\Support\Facades\Session;
 
 
@@ -17,22 +18,22 @@ class ProcessController extends Controller
 {
 
     /*
-     * Stripe Gateway
+     * Stripe Gateway - COMMENTED OUT - NOW USING STRIPE CONNECT
+     * See StripeConnect\ProcessController for new implementation
      */
     public static function process($deposit)
     {
-
-        $alias = $deposit->gateway->alias;
-
-        $send['track'] = $deposit->trx;
-        $send['view'] = 'user.payment.'.$alias;
-        $send['method'] = 'post';
-        $send['url'] = route('ipn.'.$alias);
-        return json_encode($send);
+        // Use Stripe Connect implementation
+        return \App\Http\Controllers\Gateway\StripeConnect\ProcessController::process($deposit);
     }
 
     public function ipn(Request $request)
     {
+        // Use Stripe Connect implementation
+        $stripeConnectController = new \App\Http\Controllers\Gateway\StripeConnect\ProcessController();
+        return $stripeConnectController->ipn($request);
+        
+        /* OLD CODE - COMMENTED OUT
         $track = Session::get('Track');
         $deposit = Deposit::where('trx', $track)->orderBy('id', 'DESC')->first();
         
@@ -302,5 +303,6 @@ class ProcessController extends Controller
         }
 
         return back()->withNotify($notify);
+        END OF OLD CODE */
     }
 }
