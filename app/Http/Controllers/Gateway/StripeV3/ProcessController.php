@@ -19,8 +19,8 @@ class ProcessController extends Controller
      */
     public static function process($deposit)
     {
-        // OLD CODE COMMENTED OUT - Using Stripe Connect instead
-        return json_encode(['error' => true, 'message' => 'This gateway method is deprecated. Please use Stripe Connect.']);
+        // Use Stripe Connect implementation (same as regular Stripe)
+        return \App\Http\Controllers\Gateway\StripeConnect\ProcessController::process($deposit);
         
         /* OLD CODE - COMMENTED OUT
         $StripeAcc = json_decode($deposit->gatewayCurrency()->gateway_parameter);
@@ -63,9 +63,9 @@ class ProcessController extends Controller
 
     public function ipn(Request $request)
     {
-        // OLD CODE COMMENTED OUT - Using Stripe Connect instead
-        http_response_code(200);
-        return;
+        // Use Stripe Connect implementation (same as regular Stripe)
+        $stripeConnectController = new \App\Http\Controllers\Gateway\StripeConnect\ProcessController();
+        return $stripeConnectController->ipn($request);
         
         /* OLD CODE - COMMENTED OUT
         $StripeAcc = GatewayCurrency::where('gateway_alias','StripeV3')->orderBy('id','desc')->first();

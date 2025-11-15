@@ -62,7 +62,14 @@ class ProcessController extends Controller
             $send['view'] = 'user.payment.StripeConnect'; // Use StripeConnect view
             $send['method'] = 'post';
             // Use gateway alias to build route name (matches pattern used in other gateways)
-            $send['url'] = route('ipn.' . ucfirst($alias)); // ucfirst converts 'stripe' to 'Stripe'
+            // Handle different Stripe gateway aliases: 'stripe' -> 'Stripe', 'StripeV3' -> 'StripeV3', 'StripeJs' -> 'StripeJs'
+            $routeName = $alias;
+            if (strtolower($alias) === 'stripe') {
+                $routeName = 'Stripe'; // Capitalize for route name
+            } else {
+                $routeName = $alias; // Keep as-is for StripeV3, StripeJs
+            }
+            $send['url'] = route('ipn.' . $routeName);
             $send['payment_intent_client_secret'] = $paymentIntent->client_secret;
             $send['publishable_key'] = $stripeAcc->publishable_key;
             
@@ -81,7 +88,14 @@ class ProcessController extends Controller
 
     public function ipn(Request $request)
     {
-        $track = Session::get('Track');
+        // Get track from request (POST) or session (fallback)
+        $track = $request->input('track') ?? Session::get('Track');
+        
+        if (!$track) {
+            $notify[] = ['error', 'Payment session not found. Please try again.'];
+            return redirect()->route('user.deposit.index')->withNotify($notify);
+        }
+        
         $deposit = Deposit::where('trx', $track)->orderBy('id', 'DESC')->first();
         
         if (!$deposit) {

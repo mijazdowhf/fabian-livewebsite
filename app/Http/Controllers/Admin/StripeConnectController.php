@@ -22,9 +22,9 @@ class StripeConnectController extends Controller
         $adminStripeAccount = null;
         $isConnected = false;
         
-        // Get Stripe API keys from gateway
+        // Get Stripe API keys from gateway (check for 'stripe', 'StripeV3', or 'StripeJs')
         $stripeGateway = \App\Models\GatewayCurrency::whereHas('method', function($q) {
-            $q->where('alias', 'stripe');
+            $q->whereIn('alias', ['stripe', 'StripeV3', 'StripeJs']);
         })->first();
         
         $stripeSecret = null;
@@ -63,9 +63,9 @@ class StripeConnectController extends Controller
         
         $stripeAccountId = $request->stripe_account_id;
         
-        // Get Stripe API keys
+        // Get Stripe API keys from gateway (check for 'stripe', 'StripeV3', or 'StripeJs')
         $stripeGateway = \App\Models\GatewayCurrency::whereHas('method', function($q) {
-            $q->where('alias', 'stripe');
+            $q->whereIn('alias', ['stripe', 'StripeV3', 'StripeJs']);
         })->first();
         
         if (!$stripeGateway || !$stripeGateway->gateway_parameter) {

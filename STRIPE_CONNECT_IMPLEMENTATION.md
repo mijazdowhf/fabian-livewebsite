@@ -36,25 +36,36 @@
 
 ## 🔧 Configuration Required
 
-### Environment Variables (.env)
-Add these to your `.env` file:
+### Where Stripe API Keys Are Stored
 
-```env
-# Stripe API Keys (from gateway settings - already configured)
-# These are stored in gateway_parameter JSON in database
+**Stripe API Keys are stored in the database**, not in `.env` file. They are stored in the `gateway_parameter` JSON field of the `gateway_currencies` table.
 
-# Stripe Connect Client ID (optional, for OAuth flow)
-STRIPE_CONNECT_CLIENT_ID=your_client_id_here
+### How Admin Can Update Stripe API Keys
 
-# Stripe Webhook Secret (for webhook verification)
-STRIPE_WEBHOOK_SECRET=whsec_5z9XzBSwkS254qzWfrXFmfh8OSvz2vmV
-```
+1. **Go to Admin Dashboard** → **Gateway Management** → **Automatic Gateways**
+2. **Find and click on "Stripe"** gateway
+3. **Click "Edit" button**
+4. **In the "Global Setting" section**, update:
+   - **Publishable Key**: `pk_test_...` or `pk_live_...`
+   - **Secret Key**: `sk_test_...` or `sk_live_...`
+   - **Webhook Secret** (optional): `whsec_...`
+5. **Click "Update"** to save
 
-### Admin API Keys (Provided)
+**Route:** `/admin/gateway/automatic/edit/stripe`
+
+### Admin API Keys (Example - Replace with Your Own)
 ```
 Publishable key: pk_test_51SRbkbPtLHBGD0qgvQcJvgnFQTEsK6GpnLoFQFldOuh57yEmguNM1YwkL8xdY6OvWkC9dQe5VuHkvRuBuRwunL4M00fxS5XyEA
 Secret key: sk_test_51SRbkbPtLHBGD0qgXtvgy8aMieKs13JK10yD0s5qgX8zParVxjryvkTt9Nw2pdcEghrQ8p95aSk01jL5LPuDqN6400SbtZzkHN
 Webhook secret: whsec_5z9XzBSwkS254qzWfrXFmfh8OSvz2vmV
+```
+
+**Note:** These keys should be added through the Gateway Management interface, not directly in the database or `.env` file.
+
+### Optional Environment Variables (.env)
+```env
+# Stripe Connect Client ID (optional, for OAuth flow)
+STRIPE_CONNECT_CLIENT_ID=your_client_id_here
 ```
 
 ## 📋 Setup Steps

@@ -42,9 +42,9 @@ class AgentController extends Controller
         $pageTitle = 'Stripe Account Settings';
         $agent = auth()->user();
         
-        // Get Stripe API keys from gateway
+        // Get Stripe API keys from gateway (check for 'stripe', 'StripeV3', or 'StripeJs')
         $stripeGateway = \App\Models\GatewayCurrency::whereHas('method', function($q) {
-            $q->where('alias', 'stripe');
+            $q->whereIn('alias', ['stripe', 'StripeV3', 'StripeJs']);
         })->first();
         
         $stripeSecret = null;

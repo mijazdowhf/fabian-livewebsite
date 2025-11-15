@@ -32,6 +32,14 @@
                                     <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
                                 </button>
                             </form>
+                            
+                            <!-- Hidden form for submitting payment result to IPN -->
+                            <form id="ipn-form" method="POST" action="{{ $data->url }}" style="display: none;">
+                                @csrf
+                                <input type="hidden" name="track" value="{{ $data->track }}">
+                                <input type="hidden" name="payment_intent" id="payment_intent_input">
+                                <input type="hidden" name="payment_intent_client_secret" value="{{ $data->payment_intent_client_secret }}">
+                            </form>
                         @endif
                     </div>
                 </div>
@@ -103,8 +111,9 @@
                     buttonText.textContent = '@lang("Pay Now")';
                     spinner.classList.add('d-none');
                 } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-                    // Payment succeeded, redirect to IPN handler
-                    window.location.href = '{{ $data->url }}?payment_intent=' + paymentIntent.id + '&payment_intent_client_secret={{ $data->payment_intent_client_secret }}';
+                    // Payment succeeded, submit form to IPN handler via POST
+                    document.getElementById('payment_intent_input').value = paymentIntent.id;
+                    document.getElementById('ipn-form').submit();
                 }
             });
             
